@@ -58,18 +58,94 @@
       color: #30a247;
       text-decoration: none;
     }
+	
+	input[type=submit] {
+	  background-color: #4CAF50;
+	  color: white;
+	  padding: 12px 20px;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+	  float: right;
+	}
+
+	input[type=submit]:hover {
+	  background-color: #45a049;
+	}
+	
+	input[type=reset] {
+	  background-color: #4c42dd;
+	  color: white;
+	  padding: 12px 20px;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+	  float: right;
+	}
+
+	input[type=reset]:hover {
+	  background-color: #0c0389;
+	}
+
+	.container {
+	  border-radius: 5px;
+	  padding: 20px;
+	}
+	.row {
+	  width: 100%;
+	  margin-top: 6px;
+	}
+
+	/* 清除浮动 */
+	.row:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+	input[type=text], textarea {
+	  width: 100%;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  resize: vertical;
+	}
+	/* 响应式布局 layout - 在屏幕宽度小于 600px 时， 设置为上下堆叠元素 */
+	@media screen and (max-width: 600px) {
+	  input[type=submit] {
+		width: 100%;
+		margin-top: 0;
+	  }
+	  input[type=reset] {
+		width: 100%;
+		margin-top: 0;
+	  }
+	}
   </style>
 </head>
 
 <body>
   <h1>BitTorrent over WebRTC</h1>
-  <div id="fire">
+  <div class="container">
+	<form>
+		<div class="row">
+		  <div>
+			<textarea rows="5" autofocus name="torrentId" placeholder="Download from a magnet link"></textarea>
+		  </div>
+		</div>
+		<div class="row">
+		  <input type="submit" value="Go">
+		</div>
+		<div class="row">
+		  <input type="reset" value="Clr">
+		</div>
+	</form>
+  </div>
+  <!--<div id="fire">
     <form style="display:flex;">
       <textarea rows="5" autofocus name="torrentId" style="display:inline-block;width:80%;resize:none;border-radius:5px;" placeholder="Download from a magnet link"></textarea>
       <button type="submit" style="display:inline-block;width:10%;border-radius:5px;font-size:initial;">Go</button>
       <button type="reset" style="display:inline-block;width:10%;border-radius:5px;font-size:initial;">Clr</button>
     </form>
-  </div>
+  </div>-->
   <div id="error" style="display:none;">
   </div>
   <div id="hero" style="display:none;">
